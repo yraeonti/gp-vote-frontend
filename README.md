@@ -47,8 +47,8 @@ This project contains the frontend implementation of the GP-Vote hiring task. Th
 
 ## API Documentation
 
-> **Note** No delete endpoint in the backend repo but the functionality still works
-> - In the chackAuth file, PayloadType interface, change id to uuid
+> **Note** No delete endpoint in the backend repo but the frontend functionality still works without it.
+> - In the chackAuth file, PayloadType interface, change id to uuid and destructure accordingly.
 
 ### Register User
 
