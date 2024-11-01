@@ -58,7 +58,22 @@ This project contains the frontend implementation of the GP-Vote hiring task. Th
 
 ```json
 {
-  "name": "Victor",
-  "email": "bzall@gmail.com",
+  "name": "test",
+  "email": "test@gmail.com",
   "password": "your_password_here"
+}
+
+#### Response Body
+
+```json
+{
+    "user": {
+    "username": "test",
+    "email": "bzall@gmail.com",
+    "password": "$2a$08$hashed_password_here",  
+    "updatedAt": "2024-01-01T12:00:00.000Z",      
+    "createdAt": "2024-01-01T12:00:00.000Z",    
+    "deletedAt": null,                             
+    "uuid": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    }
 }
