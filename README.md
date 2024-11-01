@@ -43,5 +43,5 @@ This project contains the frontend implementation of the GP-Vote hiring task. Th
 - Make sure backend server is running on port 8000
 
 
-> **Note**: If backend server unable to run 
-- Comment out or uninstall all instances of the **client-req-scopes** package and make sure you have python and setuptools installed on your machine
+> **Note**: If backend server is unable to run 
+> - Comment out or uninstall all instances of the **client-req-scopes** package and make sure you have python and setuptools installed on your machine
