@@ -12,7 +12,6 @@ This project contains the frontend implementation of the GP-Vote hiring task. Th
 - [Running the Frontend](#running-the-frontend)
 - [Connecting to the Backend](#connecting-to-the-backend)
 - [API Documentation](#api-documentation)
-- [Technologies Used](#technologies-used)
 
 
 ### Prerequisites
@@ -45,3 +44,21 @@ This project contains the frontend implementation of the GP-Vote hiring task. Th
 
 > **Note**: If backend server is unable to run 
 > - Comment out or uninstall all instances of the **client-req-scopes** package and make sure you have python and setuptools installed on your machine
+
+## API Documentation
+
+### Register User
+
+- **Endpoint**: `POST http://localhost:8000/api/v1/register`
+- **Description**: Registers a new user with their name, email, and password.
+- **Request Headers**: 
+  - `Content-Type: application/json`
+
+#### Request Body
+
+```json
+{
+  "name": "Victor",
+  "email": "bzall@gmail.com",
+  "password": "your_password_here"
+}
