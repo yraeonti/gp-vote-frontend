@@ -23,3 +23,17 @@ This project contains the frontend implementation of the GP-Vote hiring task. Th
   npm install -g yarn
 
 ## Running the Frontend
+
+## Running the Frontend
+
+- Clone this GitHub repository: [GP-Vote Frontend](link)
+- Open your terminal and change the directory to `gp-vote-frontend`:
+  ```bash
+  cd gp-vote-frontend
+- Install dependencies:
+  ```bash
+  yarn
+- Run the development server
+  ```bash
+  yarn run dev
+- The application should now be running locally. You can view it in your browser at http://localhost:3000
