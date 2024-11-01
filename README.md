@@ -24,9 +24,7 @@ This project contains the frontend implementation of the GP-Vote hiring task. Th
 
 ## Running the Frontend
 
-## Running the Frontend
-
-- Clone this GitHub repository: [GP-Vote Frontend](link)
+- Clone this GitHub repository: [GP-Vote Frontend](https://github.com/yraeonti/gp-vote-frontend)
 - Open your terminal and change the directory to `gp-vote-frontend`:
   ```bash
   cd gp-vote-frontend
@@ -37,3 +35,13 @@ This project contains the frontend implementation of the GP-Vote hiring task. Th
   ```bash
   yarn run dev
 - The application should now be running locally. You can view it in your browser at http://localhost:3000
+
+## Connecting to the Backend
+
+- Clone Backend repository: [GP-Vote Hiring-task](https://github.com/GP-Vote/hiring-task)
+- Follow the instrunctions in the Frontend.md to run backend server
+- Make sure backend server is running on port 8000
+
+
+> **Note**: If backend server unable to run 
+- Comment out or uninstall all instances of the **client-req-scopes** package and make sure you have python and setuptools installed on your machine
