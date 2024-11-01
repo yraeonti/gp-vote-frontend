@@ -126,9 +126,9 @@ This project contains the frontend implementation of the GP-Vote hiring task. Th
 {
    "title": "I made this",
    "userId": {
-    //...
+ 
    }
-   //...
+
 }
 ```
 
@@ -146,8 +146,8 @@ This project contains the frontend implementation of the GP-Vote hiring task. Th
  ```json
 [
     {
-        "title": "clouds"
-        //...
+        "title": "clouds",
+
     },
 ]
 ```
