@@ -12,6 +12,7 @@ export default function Header() {
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
         fill="currentColor"
+        role="logout"
         className="size-6 cursor-pointer fill-red-500"
         onClick={() => logOut()}
       >

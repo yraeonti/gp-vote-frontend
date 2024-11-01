@@ -8,7 +8,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Button } from "../ui/button";
-import { useForm } from "react-hook-form";
+import { useForm, UseFormReturn } from "react-hook-form";
 import {
   Form,
   FormControl,
@@ -30,14 +30,7 @@ import { useAuthContext } from "@/context/auth-context";
 const formSchema = z.object({
   title: z.string().min(1, { message: "Title cannot be empty" }),
 });
-export default function AddTitle() {
-  const form = useForm({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      title: "",
-    },
-  });
-
+export default function AddTitlePage() {
   const { token } = useAuthContext();
 
   const { isConnected } = useAccount();
@@ -65,6 +58,36 @@ export default function AddTitle() {
     }
   };
   return (
+    <AddTitle
+      onSubmit={onSubmit}
+      open={open}
+      isConnected={isConnected}
+      setOpen={setOpen}
+    />
+  );
+}
+
+interface IAddTitle {
+  open: boolean;
+  setOpen: (open: boolean) => void;
+  isConnected: boolean;
+  onSubmit: (data: any) => Promise<void>;
+}
+
+export const AddTitle = ({
+  open,
+  setOpen,
+  isConnected,
+  onSubmit,
+}: IAddTitle) => {
+  const form = useForm({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      title: "",
+    },
+  });
+
+  return (
     <Dialog
       open={open}
       onOpenChange={(open) => {
@@ -85,13 +108,27 @@ export default function AddTitle() {
       <DialogTrigger className="rounded-lg py-2 px-4 bg-black shadow-md text-white">
         Add Title
       </DialogTrigger>
-      <DialogContent>
+      <DialogContent role="modal">
         <DialogHeader>
           <DialogTitle>Add new Title</DialogTitle>
         </DialogHeader>
-
+        <div>Employ me</div>
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)}>
+          <form
+            onSubmit={form.handleSubmit(
+              isConnected
+                ? onSubmit
+                : () => {
+                    Swal.fire({
+                      title: "Info!",
+                      text: "Please Connect Wallet",
+                      toast: true,
+                      position: "top-end",
+                      timer: 2800,
+                    });
+                  }
+            )}
+          >
             <FormField
               control={form.control}
               name="title"
@@ -117,4 +154,4 @@ export default function AddTitle() {
       </DialogContent>
     </Dialog>
   );
-}
+};

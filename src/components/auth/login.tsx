@@ -38,22 +38,22 @@ export default function Login() {
   });
 
   const onSubmit = async (data: z.infer<typeof formSchema>) => {
-    const res = await fetch(apiUrl("/auth/login"), {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
+    try {
+      const res = await fetch(apiUrl("/auth/login"), {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
 
-    if (res.ok) {
-      const data = await res.json();
+      if (res.ok) {
+        const data = await res.json();
 
-      console.log(data);
-
-      saveToken(data.token);
-      router.push("/dashboard");
-    }
+        saveToken(data.token);
+        router.push("/dashboard");
+      }
+    } catch (error) {}
   };
 
   return (
@@ -61,7 +61,8 @@ export default function Login() {
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className=" w-full sm:w-[40%] lg:w-[30%] rounded-xl shadow-2xl border overflow-hidden border-gray-300  bg-white"
+          role="form"
+          className=" w-full  sm:w-[50%] lg:w-[34%] rounded-xl shadow-2xl border overflow-hidden border-gray-300  bg-white"
         >
           <h1 className="my-4 font-semibold px-6">Login to Dashboard</h1>
           <div className="px-6 py-6  space-y-5">

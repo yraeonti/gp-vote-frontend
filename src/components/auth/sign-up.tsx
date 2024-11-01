@@ -14,13 +14,14 @@ import { z } from "zod";
 import { Button } from "../ui/button";
 import { apiUrl } from "@/lib/constants";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const formSchema = z.object({
   email: z.string().email({ message: "Please provide valid Email" }),
   password: z
     .string()
     .min(6, { message: "Password has to be 6 or more characters" }),
-  username: z.string().min(2, { message: "Name is required" }),
+  username: z.string().min(1, { message: "Name is required" }),
 });
 
 export default function Signup() {
@@ -33,6 +34,8 @@ export default function Signup() {
     },
   });
 
+  const router = useRouter();
+
   const onSubmit = async (data: z.infer<typeof formSchema>) => {
     const res = await fetch(apiUrl("/auth/register"), {
       method: "POST",
@@ -43,6 +46,7 @@ export default function Signup() {
     });
 
     if (res.ok) {
+      router.push("/login");
     }
   };
 
@@ -51,9 +55,9 @@ export default function Signup() {
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className=" w-full sm:w-[40%] lg:w-[30%] rounded-xl shadow-2xl border overflow-hidden border-gray-300  bg-white"
+          className=" w-full sm:w-[50%] lg:w-[34%] rounded-xl shadow-2xl border overflow-hidden border-gray-300  bg-white"
         >
-          <h1 className="my-4 font-semibold px-6">Sign Up</h1>
+          <h1 className="mt-4 font-semibold px-6">Create New Account</h1>
           <div className="p-6  space-y-5">
             <FormField
               control={form.control}

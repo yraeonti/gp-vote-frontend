@@ -13,6 +13,9 @@ export async function getQueryFunc({ queryKey }: { queryKey: QueryKey }) {
       Authorization: token,
     },
   });
+  if (response.status == 401) {
+    throw new Error("Unauthorized");
+  }
   if (!response.ok) {
     throw new Error("Network response was not ok");
   }
