@@ -56,16 +56,17 @@ This project contains the frontend implementation of the GP-Vote hiring task. Th
 
 #### Request Body
 
-```json
-{
-  "name": "test",
-  "email": "test@gmail.com",
-  "password": "your_password_here"
-}
+  ```json
+  {
+        "name": "test",
+        "email": "test@gmail.com",
+        "password": "your_password_here"
+  }
+  ```
 
 #### Response Body
 
-```json
+ ```json
 {
     "user": {
     "username": "test",
@@ -77,3 +78,4 @@ This project contains the frontend implementation of the GP-Vote hiring task. Th
     "uuid": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     }
 }
+```
