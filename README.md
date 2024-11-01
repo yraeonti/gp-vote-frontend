@@ -79,3 +79,75 @@ This project contains the frontend implementation of the GP-Vote hiring task. Th
     }
 }
 ```
+
+### Login User
+
+- **Endpoint**: `POST http://localhost:8000/api/v1/login`
+- **Description**: Login a user with email, and password.
+- **Request Headers**: 
+  - `Content-Type: application/json`
+
+#### Request Body
+
+  ```json
+  {
+        "email": "test@gmail.com",
+        "password": "your_password_here"
+  }
+  ```
+
+#### Response Body
+
+ ```json
+{
+   "token": "Bearer jwt_token"
+}
+```
+
+### Add Title
+
+- **Endpoint**: `POST http://localhost:8000/api/v1/title`
+- **Description**: Add Title to database.
+- **Request Headers**: 
+  - `Content-Type: application/json`
+  -  `headers - Authorization: Bearer jwt_token`
+
+#### Request Body
+
+  ```json
+  {
+        "title": "new title",
+  }
+  ```
+
+#### Response Body
+
+ ```json
+{
+   "title": "I made this",
+   "userId": {
+    //...
+   }
+   //...
+}
+```
+
+### Get Titles
+
+- **Endpoint**: `GET http://localhost:8000/api/v1/title`
+- **Description**: Get Titles from database.
+- **Request Headers**: 
+  - `Content-Type: application/json`
+  -  `headers - Authorization: Bearer jwt_token`
+
+
+#### Response Body
+
+ ```json
+[
+    {
+        "title": "clouds"
+        //...
+    },
+]
+```
